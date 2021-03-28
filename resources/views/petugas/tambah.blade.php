@@ -47,17 +47,16 @@
             <div class="col">
                 <h3 class="text-center">Tanggapan</h3>
                 <div class="card">
-                    <form action="/edittanggapan/{{$pengaduan->id}}" method="post">
+                    <form action="/tambahtanggapan" method="post">
                         @csrf
-                        @method('patch')
                     <div class="card-body">
                         <div class="form-group">
                             <input type="hidden" class="form-control" id="id" name="id" value="{{ $pengaduan->id }}">
-                            <input type="hidden" class="form-control" id="id_p" name="id_p" value="{{ $tanggapan->id_petugas }}">
+                            <input type="hidden" class="form-control" id="id_p" name="id_p" value="{{ Auth::user()->id_petugas }}">
                         </div>
                         <div class="form-group input-daterange">
                             <label for="tgl">Tanggal Tanggapan</label>
-                            <input class="form-control text-left bg-transparent @error ('tgl') is-invalid @enderror" type="date" name="tgl" id="tgl"value="{{ !empty($tanggapan->tgl_tanggapan) ? $tanggapan->tgl_tanggapan : '' }}" readonly>
+                            <input class="form-control text-left bg-transparent" type="text" name="tgl" id="tgl"value="{{ !empty($tanggapan->tgl_tanggapan) ? $tanggapan->tgl_tanggapan : '' }}" readonly>
                         </div>
                         @error('tgl')
                         <div class="invalid-feedback">

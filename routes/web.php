@@ -51,12 +51,12 @@ Route::middleware('auth','role:admin')->group(function(){
 
 // Petugas Route
 Route::middleware('auth','role:petugas')->group(function(){
-    Route::get('/pengaduanpetugas', function () {
-        return view('/petugas/list');
-    });
-    Route::get('/editpengaduan', function () {
-        return view('/petugas/edit');
-    });
+    Route::get('/pengaduanpetugas', 'PengaduanController@list');
+    Route::get('/edittanggapan/{id}', 'TanggapanController@edit');
+    Route::patch('/edittanggapan/{id}', 'TanggapanController@update');
+    Route::put('/editpengaduan/{id}', 'PengaduanController@changeStatus');
+    Route::get('/tambahtanggapan/{id}', 'PengaduanController@tambah')->name('tambah.tanggapan');
+    Route::post('/tambahtanggapan', 'PengaduanController@add');
 });
 // End Petugas Route
 
@@ -64,9 +64,11 @@ Route::middleware('auth','role:petugas')->group(function(){
 Route::middleware('auth','role:user')->group(function(){
     Route::get('/lapor', 'PengaduanController@create')->middleware('auth','role:user');
     Route::post('/lapor', 'PengaduanController@store')->middleware('auth','role:user');
-    Route::post('/lapor', 'PengaduanController@store')->middleware('auth','role:user');
     Route::get('/listaduan', function () {
         return view('/masyarakat/list');
+    });
+    Route::get('/detailaduan', function () {
+        return view('/masyarakat/detail');
     });
     Route::get('/edituser', function () {
         return view('/masyarakat/edit');

@@ -20,15 +20,18 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($pengaduan as $p)
                         <tr>
-                            <td>1</td>
-                            <td>2021-03-03</td>
-                            <td>Proses</td>
-                            <td>Aduan</td>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{$p->tanggal_pengaduan}}</td>
+                            <td>{{$p->status}}</td>
+                            <td>{{$p->kategori}}</td>
                             <td>
-                                <a href="/editpengaduan" class="btn btn-primary" style="max-width: 120px; width:100%;"><i class="fas fa-search"></i> Detail</a>
+                                <a href="/tambahtanggapan/{{$p->id}}" class="btn btn-success" style="max-width: 120px; width:100%">Tanggapi</a>
+                                <a href="/edittanggapan/{{$p->id}}" class="btn btn-primary" style="max-width: 120px; width:100%;">Edit</a>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

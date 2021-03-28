@@ -60,8 +60,7 @@
                             <td>Selesai</td>
                             <td>Aduan</td>
                             <td>
-                                <a href="/detailmasyarakat" class="btn btn-primary" style="min-width: 120px;"><i class="fas fa-search"></i> Detail</a>
-                                <a href="" class="btn btn-danger" style="min-width: 120px;"><i class="fas fa-trash-alt"> Hapus</i></a>
+                                <a href="/detailaduan" class="btn btn-primary" style="min-width: 120px;"><i class="fas fa-search"></i> Detail</a>
                             </td>
                         </tr>
                         <tr>
@@ -70,8 +69,7 @@
                             <td>Selesai</td>
                             <td>Aduan</td>
                             <td>
-                                <a href="/detailmasyarakat" class="btn btn-primary" style="min-width: 120px;"><i class="fas fa-search"></i> Detail</a>
-                                <a href="" class="btn btn-danger" style="min-width: 120px;"><i class="fas fa-trash-alt"> Hapus</i></a>
+                                <a href="/detailaduan" class="btn btn-primary" style="min-width: 120px;"><i class="fas fa-search"></i> Detail</a>
                             </td>
                         </tr>
                     </tbody>

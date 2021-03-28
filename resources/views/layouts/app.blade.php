@@ -92,7 +92,7 @@
                         @auth('web')
                         @if(Auth::user()->role == 'user')
                         <li class="nav-item"><a class="nav-link" href="/lapor">Lapor</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/pengaduan">History Pengaduan</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/listaduan">History Pengaduan</a></li>
                         <li class="nav-item"><a class="nav-link" href="/edituser">User Setting</a></li>                      
                         @endif
                         @endauth

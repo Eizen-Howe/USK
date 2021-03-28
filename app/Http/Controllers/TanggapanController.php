@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Pengaduan;
 use App\Tanggapan;
 use Illuminate\Http\Request;
 
@@ -55,9 +56,11 @@ class TanggapanController extends Controller
      * @param  \App\Tanggapan  $tanggapan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tanggapan $tanggapan)
+    public function edit($id)
     {
-        //
+        $pengaduan = Pengaduan::findOrFail($id);
+        $tanggapan = Tanggapan::where('id_pengaduan','=',$id)->first();
+        return view('petugas.edit', ['pengaduan'=>$pengaduan, 'tanggapan'=>$tanggapan]);
     }
 
     /**
@@ -67,9 +70,19 @@ class TanggapanController extends Controller
      * @param  \App\Tanggapan  $tanggapan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tanggapan $tanggapan)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'tgl' => 'required',
+            'isi' => 'required',
+        ]);
+
+        $tanggapan = Tanggapan::where('id_pengaduan','=',$id)->first();
+        $tanggapan->tgl_tanggapan = $request->tgl;
+        $tanggapan->tanggapan = $request->isi;
+        $tanggapan->update();
+
+        return redirect('/pengaduanpetugas');
     }
 
     /**
